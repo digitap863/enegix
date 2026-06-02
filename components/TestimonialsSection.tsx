@@ -150,8 +150,9 @@ export default function TestimonialsSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.35, delay: pos * 0.07 }}
-                    className="bg-white border border-[#E9ECF1] rounded-xl shadow-sm hover:shadow-md
-                               transition-shadow duration-300 p-5 flex flex-col gap-4"
+                    className={`bg-white border border-[#E9ECF1] rounded-xl shadow-sm hover:shadow-md
+                               transition-shadow duration-300 p-5 flex flex-col gap-4
+                               ${pos === 0 ? "flex" : "hidden sm:flex"}`}
                   >
                     {/* Avatar + Name */}
                     <div className="flex items-center gap-3">
