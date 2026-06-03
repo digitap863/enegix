@@ -245,9 +245,20 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-5">
             <h3 className="text-[#72D210] font-bold text-lg uppercase tracking-wider">Our Location</h3>
             <div className="flex flex-col gap-4">
-              {/* Map box placeholder omitted as requested */}
+              <div className="w-full h-32 rounded-lg overflow-hidden border border-white/10 shadow-inner">
+                <iframe
+                  src="https://maps.google.com/maps?q=Office%2310%2C%20Mezanine%20Floor%2C%20Paradeshi%20building%2C%20Nad%20Al%20Hamar%2C%20Dubai%20-%20UAE&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Enegix Office Location Map"
+                />
+              </div>
               <a
-                href="https://maps.google.com"
+                href="https://maps.google.com/?q=Office%2310%2C%20Mezanine%20Floor%2C%20Paradeshi%20building%2C%20Nad%20Al%20Hamar%2C%20Dubai%20-%20UAE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 text-sm text-white hover:text-[#72D210] transition-colors group mt-2"

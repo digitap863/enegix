@@ -18,7 +18,7 @@ const itemVariants: Variants = {
 export default function AboutHero() {
   return (
     <section
-      className="w-full relative flex items-center overflow-hidden bg-[#041B3A] min-h-[calc(100vh-120px)] lg:min-h-[calc(100vh-136px)]"
+      className="w-full relative flex items-center overflow-hidden bg-[#041B3A] min-h-screen"
     >
       {/* Background image — slow zoom */}
       <div
@@ -37,7 +37,7 @@ export default function AboutHero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 md:py-28 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-20 md:pt-40 md:pb-28 w-full"
         initial="hidden"
         animate="visible"
         variants={containerVariants}

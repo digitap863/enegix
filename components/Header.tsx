@@ -1,13 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past top boundary
+      if (currentScrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Hide header on scroll down, show on scroll up (prevent if mobile menu is open)
+      if (currentScrollY > lastScrollY && currentScrollY > 120 && !mobileMenuOpen) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, mobileMenuOpen]);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -19,11 +47,16 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full flex flex-col font-roboto">
+    <header className={`fixed top-0 left-0 w-full z-50 transform font-roboto ${
+      scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+    } ${
+      visible ? "translate-y-0" : "-translate-y-full"
+    }`}>
       {/* 1. TOP INFORMATION BAR */}
-      <div className="w-full bg-[#001729] text-white py-2.5 text-xs border-b border-white/5">
+      {/* <div className={`w-full bg-[#001729] text-white text-xs border-b border-white/5 hidden md:block origin-top ${
+        scrolled ? "max-h-0 py-0 border-0 opacity-0 overflow-hidden" : "max-h-12 py-2.5 opacity-100"
+      }`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
-          {/* Location info */}
           <div className="flex items-center gap-2 text-white/90">
             <svg
               className="w-4 h-4 text-white/70 shrink-0"
@@ -35,9 +68,7 @@ export default function Header() {
             <span>Office#10, Mezanine Floor, UAE</span>
           </div>
 
-          {/* Contact info */}
           <div className="flex flex-wrap items-center gap-5 justify-center">
-            {/* Phone */}
             <a href="tel:+97145936064" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
               <svg
                 className="w-4 h-4 text-white/70 shrink-0"
@@ -49,7 +80,6 @@ export default function Header() {
               <span>+971 4 593 6064</span>
             </a>
 
-            {/* Email */}
             <a href="mailto:info@enegixtec.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
               <svg
                 className="w-4 h-4 text-white/70 shrink-0"
@@ -62,16 +92,20 @@ export default function Header() {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* 2. MAIN NAVIGATION BAR */}
-      <div className="w-full bg-white shadow-sm border-b border-black/5">
+      <div className={`w-full ${
+        scrolled
+          ? "bg-white shadow-sm border-b border-black/5"
+          : "bg-white/5 backdrop-blur-md border-b border-white/10"
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo area */}
             <Link href="/" className="flex items-center shrink-0">
               <Image
-                src="/Enegix_Gas_Logo.png"
+                src={scrolled ? "/Enegix_Gas_Logo.png" : "/Enegix_Gas_Logo_Footer.png"}
                 alt="Enegix Gas Logo"
                 width={200}
                 height={55}
@@ -88,8 +122,10 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`font-exo text-[16px] leading-[26px] transition-colors hover:text-[#529e0b] ${
-                      isActive ? "text-[#001729] font-bold" : "text-[#4b5563] font-normal"
+                    className={`font-exo text-[16px] leading-[26px] ${
+                      scrolled
+                        ? isActive ? "text-[#001729] font-bold" : "text-[#4b5563] font-normal hover:text-[#529e0b]"
+                        : isActive ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                     }`}
                   >
                     {item.name}
@@ -122,7 +158,11 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-[#001729] hover:bg-gray-100 transition-colors focus:outline-none"
+                className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none ${
+                  scrolled
+                    ? "text-gray-500 hover:text-[#001729] hover:bg-gray-100"
+                    : "text-white hover:text-[#72D210] hover:bg-white/10"
+                }`}
               >
                 <span className="sr-only">Open main menu</span>
                 {mobileMenuOpen ? (
@@ -142,7 +182,11 @@ export default function Header() {
 
       {/* 3. MOBILE MENU (Drawer) */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out border-b border-black/5 bg-white ${
+        className={`lg:hidden ${
+          scrolled
+            ? "bg-white border-b border-black/5"
+            : "bg-[#001729]/95 backdrop-blur-md border-b border-white/10"
+        } ${
           mobileMenuOpen ? "max-h-[500px] opacity-100 py-4" : "max-h-0 opacity-0 overflow-hidden py-0"
         }`}
       >
@@ -154,8 +198,10 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2.5 rounded-md text-base font-exo hover:bg-gray-50 hover:text-[#72D210] ${
-                  isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal"
+                className={`block px-3 py-2.5 rounded-md text-base font-exo ${
+                  scrolled
+                    ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
+                    : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                 }`}
               >
                 {item.name}

@@ -19,7 +19,7 @@ const services = [
   },
   {
     image: "/assets/Home_Service/laboratory.png",
-    title: "Laboratory\nSolutions",
+    title: "LABORATORY TRUNKEY \SOLUTIONS",
     desc: "End-to-end gas room, manifold, and reticulation systems for research and teaching labs.",
     link: "/services/laboratory",
   },
@@ -37,8 +37,8 @@ const services = [
   },
   {
     image: "/assets/Home_Service/emergency.png",
-    title: "Emergency\nServices",
-    desc: "Round-the-clock emergency response for gas leaks, outages, and critical system failures.",
+    title: "Emergency Gas\nServices",
+    desc: "Fast, reliable support when gas systems need immediate attention.",
     link: "/services/emergency",
   },
 ];
