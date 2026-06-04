@@ -11,6 +11,8 @@ export default function Header() {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
+  const isLightPage = pathname === "/contact" || pathname === "/blog";
+  const useDarkText = scrolled || isLightPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,14 +100,16 @@ export default function Header() {
       <div className={`w-full ${
         scrolled
           ? "bg-white shadow-sm border-b border-black/5"
-          : "bg-white/5 backdrop-blur-md border-b border-white/10"
+          : isLightPage
+            ? "bg-white/25 backdrop-blur-md border-b border-black/5"
+            : "bg-white/5 backdrop-blur-md border-b border-white/10"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo area */}
             <Link href="/" className="flex items-center shrink-0">
               <Image
-                src={scrolled ? "/Enegix_Gas_Logo.png" : "/Enegix_Gas_Logo_Footer.png"}
+                src={useDarkText ? "/Enegix_Gas_Logo.png" : "/Enegix_Gas_Logo_Footer.png"}
                 alt="Enegix Gas Logo"
                 width={200}
                 height={55}
@@ -123,7 +127,7 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     className={`font-exo text-[16px] leading-[26px] ${
-                      scrolled
+                      useDarkText
                         ? isActive ? "text-[#001729] font-bold" : "text-[#4b5563] font-normal hover:text-[#529e0b]"
                         : isActive ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                     }`}
@@ -159,7 +163,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none ${
-                  scrolled
+                  useDarkText
                     ? "text-gray-500 hover:text-[#001729] hover:bg-gray-100"
                     : "text-white hover:text-[#72D210] hover:bg-white/10"
                 }`}
@@ -183,7 +187,7 @@ export default function Header() {
       {/* 3. MOBILE MENU (Drawer) */}
       <div
         className={`lg:hidden ${
-          scrolled
+          useDarkText
             ? "bg-white border-b border-black/5"
             : "bg-[#001729]/95 backdrop-blur-md border-b border-white/10"
         } ${
@@ -199,7 +203,7 @@ export default function Header() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-md text-base font-exo ${
-                  scrolled
+                  useDarkText
                     ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
                     : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                 }`}

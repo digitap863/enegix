@@ -17,17 +17,25 @@ const itemVariants: Variants = {
 
 export default function ContactHero() {
   return (
-    <section className="w-full relative flex items-center overflow-hidden bg-white min-h-[50vh] border-b border-gray-100">
-      {/* Background image on the right - taking up about half the screen on desktop */}
+    <section className="w-full relative flex items-center overflow-hidden bg-white min-h-screen">
+      {/* Background image container - full 100vh/100vw coverage */}
       <div
-        className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] lg:w-[50%] bg-cover bg-center md:bg-left bg-no-repeat opacity-90"
+        className="absolute inset-0 w-full h-full bg-cover bg-right bg-no-repeat opacity-80 md:opacity-100"
         style={{
           backgroundImage: "url('/assets/Contact/background.png')",
         }}
       />
 
-      {/* Fade overlay: goes from solid white on the left (where text is) to transparent on the right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-80% md:via-50% to-white/10 pointer-events-none" />
+      {/* Blue color shade/tint overlay on the image */}
+      <div className="absolute inset-0 bg-[#001729]/12 mix-blend-color pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#001729]/5 to-[#003c71]/25 mix-blend-overlay pointer-events-none" />
+
+      {/* Fading overlays:
+          1. Horizontal fade (left-to-right): Solid white on the left (covering text/nav links) and transitioning to transparent on the right to match the blend model.
+          2. Vertical fade (top-to-bottom): Transparent at top, solid white at the bottom to blend with the next section.
+      */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-40% md:via-white md:via-45% lg:via-white lg:via-50% to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white pointer-events-none" />
 
       {/* Content */}
       <motion.div
@@ -48,7 +56,7 @@ export default function ContactHero() {
           {/* Main heading */}
           <motion.h1
             variants={itemVariants}
-            className="font-exo font-extrabold text-[#001729] text-3xl sm:text-4xl md:text-[52px] leading-tight tracking-tight uppercase mb-4"
+            className="font-exo font-extrabold text-[#011540] text-3xl sm:text-4xl md:text-[72px] leading-tight tracking-tight uppercase mb-4"
           >
             TALK TO OUR
             <br />

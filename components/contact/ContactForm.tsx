@@ -67,15 +67,15 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* LEFT COLUMN: Dark Navy Details Card */}
-          <div className="lg:col-span-5 bg-[#001729] rounded-[24px] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+          <div className="lg:col-span-5 bg-[#011540] rounded-[24px] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="absolute -right-24 -bottom-24 w-64 h-64 bg-[#72D210]/10 rounded-full blur-3xl pointer-events-none" />
 
-            <span className="font-roboto font-bold text-[#72D210] uppercase tracking-widest text-xs md:text-sm block mb-3">
+            <span className="font-roboto font-bold text-[#4E9208] uppercase tracking-widest text-xs md:text-sm block mb-3">
               CONTACT
             </span>
 
-            <h2 className="font-exo font-extrabold text-[#72D210] text-2xl sm:text-3xl md:text-[34px] leading-tight tracking-tight uppercase mb-4">
+            <h2 className="font-roboto font-extrabold text-[#4E9208] text-2xl sm:text-3xl md:text-[34px] leading-tight tracking-tight uppercase mb-4">
               TALK TO OUR
               <br />
               ENGINEERING TEAM.
@@ -189,7 +189,7 @@ export default function ContactForm() {
           </div>
 
           {/* RIGHT COLUMN: Interactive Enquiry Form */}
-          <div className="lg:col-span-7 w-full">
+          <div className="lg:col-span-7 w-full md:pt-5">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Form Input fields */}
               <div>
@@ -258,7 +258,7 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2 bg-[#001729] hover:bg-[#002642] active:scale-[0.98] text-white font-exo font-semibold text-base py-3.5 px-8 rounded-lg shadow-md transition-all uppercase disabled:opacity-50 disabled:cursor-not-allowed group cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#011540] hover:bg-[#011540]/95 active:scale-[0.98] text-white font-exo font-semibold text-base py-3.5 px-8 rounded-lg shadow-md transition-all uppercase disabled:opacity-50 disabled:cursor-not-allowed group cursor-pointer"
                 >
                   <span>{isSubmitting ? "Sending..." : "Send Enquiry"}</span>
                   {!isSubmitting && (
@@ -268,7 +268,7 @@ export default function ContactForm() {
                   )}
                 </button>
 
-                <p className="font-roboto text-gray-500 text-xs tracking-wide">
+                <p className="font-roboto text-black text-s tracking-wide">
                   Please fill out the form, and we'll get in touch with you shortly.
                 </p>
               </div>
