@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
 import ContactSubmission from "@/models/ContactSubmission";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
@@ -15,10 +16,48 @@ export async function POST(request: Request) {
       );
     }
 
+    // Helper function to send email notification
+    const sendNotificationEmail = async () => {
+      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.warn("Email credentials not configured. Skipping email notification.");
+        return;
+      }
+      
+      try {
+        const transporter = nodemailer.createTransport({
+          host: process.env.EMAIL_HOST || "smtp.gmail.com",
+          port: Number(process.env.EMAIL_PORT) || 587,
+          secure: process.env.EMAIL_SECURE === "true",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
+
+        const mailOptions = {
+          from: `"Enegix Website" <${process.env.EMAIL_USER}>`,
+          to: process.env.EMAIL_RECEIVER || process.env.EMAIL_USER,
+          subject: `New Contact Enquiry from ${name}`,
+          text: `You have a new contact form submission.\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+          html: `<p><strong>New Contact Enquiry</strong></p>
+                 <p><strong>Name:</strong> ${name}</p>
+                 <p><strong>Email:</strong> ${email}</p>
+                 <p><strong>Phone:</strong> ${phone}</p>
+                 <p><strong>Message:</strong><br/>${message}</p>`,
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log("Notification email sent successfully");
+      } catch (emailError) {
+        console.error("Error sending notification email: ", emailError);
+      }
+    };
+
     // Try connecting to MongoDB. If MONGODB_URI is not set, we fall back to a mock success response
     // so the front-end still works properly without a database.
     if (!process.env.MONGODB_URI) {
       console.warn("MONGODB_URI is not defined. Simulating successful form submission.");
+      await sendNotificationEmail(); // Still try to send email
       return NextResponse.json(
         {
           success: true,
@@ -38,13 +77,20 @@ export async function POST(request: Request) {
         message,
       });
 
+      // Send email after successful save
+      await sendNotificationEmail();
+
       return NextResponse.json(
         { success: true, message: "Enquiry submitted successfully.", data: submission },
         { status: 201 }
       );
     } catch (dbError: any) {
       console.error("Database connection/save error: ", dbError);
+      
       // Fallback response so user doesn't get blocked
+      // We still try to send the email so the lead is not lost
+      await sendNotificationEmail();
+      
       return NextResponse.json(
         {
           success: true,
