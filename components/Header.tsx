@@ -5,14 +5,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+const servicesList = [
+  { name: "LPG/SNG System", href: "/services/lpg" },
+  { name: "Medical Gas System", href: "/services/medical" },
+  { name: "Laboratory Turnkey Solutions", href: "/services/laboratory" },
+  { name: "Fuel Oil System", href: "/services/fuel-oil" },
+  { name: "Maintenance & AMC", href: "/services/maintenance" },
+  { name: "Emergency Gas Services", href: "/services/emergency" },
+];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const isLightPage = pathname === "/contact" || pathname === "/blog";
-  const useDarkText = scrolled || isLightPage;
+  const useDarkText = scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,11 +60,9 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transform font-roboto ${
-      scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
-    } ${
-      visible ? "translate-y-0" : "-translate-y-full"
-    }`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transform font-roboto ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+      } ${visible ? "translate-y-0" : "-translate-y-full"
+      }`}>
       {/* 1. TOP INFORMATION BAR */}
       {/* <div className={`w-full bg-[#001729] text-white text-xs border-b border-white/5 hidden md:block origin-top ${
         scrolled ? "max-h-0 py-0 border-0 opacity-0 overflow-hidden" : "max-h-12 py-2.5 opacity-100"
@@ -97,13 +106,12 @@ export default function Header() {
       </div> */}
 
       {/* 2. MAIN NAVIGATION BAR */}
-      <div className={`w-full ${
-        scrolled
+      <div className={`w-full ${scrolled
           ? "bg-white shadow-sm border-b border-black/5"
           : isLightPage
-            ? "bg-white/25 backdrop-blur-md border-b border-black/5"
+            ? "bg-[#001729]/80 border-b border-white/10 "
             : "bg-white/5 backdrop-blur-md border-b border-white/10"
-      }`}>
+        }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4">
           <div className="flex justify-between items-center h-20 md:h-24">
             {/* Logo area */}
@@ -121,16 +129,73 @@ export default function Header() {
             {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive = item.name === "Services"
+                  ? pathname.startsWith("/services")
+                  : pathname === item.href;
+
+                if (item.name === "Services") {
+                  return (
+                    <div
+                      key={item.name}
+                      className="relative py-6 flex items-center"
+                      onMouseEnter={() => setIsDropdownOpen(true)}
+                      onMouseLeave={() => setIsDropdownOpen(false)}
+                    >
+                      <button
+                        className={`font-exo text-[16px] leading-[26px] flex items-center gap-1.5 cursor-pointer focus:outline-none transition-colors ${useDarkText
+                            ? isActive || isDropdownOpen ? "text-[#001729] font-bold" : "text-black font-normal hover:text-[#529e0b]"
+                            : isActive || isDropdownOpen ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
+                          }`}
+                      >
+                        <span>{item.name}</span>
+                        <svg
+                          className={`w-3.5 h-3.5 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+
+                      {/* Dropdown Menu */}
+                      {isDropdownOpen && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                          <div className="w-80 bg-[#0c1b30]/95 backdrop-blur-md border border-white/10 rounded-md shadow-2xl p-3 flex flex-col space-y-1.5">
+                            {servicesList.map((service) => (
+                              <Link
+                                key={service.name}
+                                href={service.href}
+                                className="group flex items-center gap-4 px-4 py-3.5 text-[15px] font-roboto font-normal text-white/90 rounded-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-white border border-transparent hover:border-white/15"
+                              >
+                                <svg
+                                  className="w-3.5 h-3.5 text-white/70 transition-transform duration-200 group-hover:-translate-x-1 shrink-0"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                                </svg>
+                                <span>{service.name}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`font-exo text-[16px] leading-[26px] ${
-                      useDarkText
-                        ? isActive ? "text-[#001729] font-bold" : "text-[#4b5563] font-normal hover:text-[#529e0b]"
+                    className={`font-exo text-[16px] leading-[26px] ${useDarkText
+                        ? isActive ? "text-[#001729] font-bold" : "text-black font-normal hover:text-[#529e0b]"
                         : isActive ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </Link>
@@ -162,11 +227,10 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none ${
-                  useDarkText
+                className={`inline-flex items-center justify-center p-2 rounded-md transition-colors focus:outline-none ${useDarkText
                     ? "text-gray-500 hover:text-[#001729] hover:bg-gray-100"
                     : "text-white hover:text-[#72D210] hover:bg-white/10"
-                }`}
+                  }`}
               >
                 <span className="sr-only">Open main menu</span>
                 {mobileMenuOpen ? (
@@ -186,27 +250,89 @@ export default function Header() {
 
       {/* 3. MOBILE MENU (Drawer) */}
       <div
-        className={`lg:hidden ${
-          useDarkText
+        className={`lg:hidden ${useDarkText
             ? "bg-white border-b border-black/5"
             : "bg-[#001729]/95 backdrop-blur-md border-b border-white/10"
-        } ${
-          mobileMenuOpen ? "max-h-[500px] opacity-100 py-4" : "max-h-0 opacity-0 overflow-hidden py-0"
-        }`}
+          } ${mobileMenuOpen ? "max-h-[600px] opacity-100 py-4" : "max-h-0 opacity-0 overflow-hidden py-0"
+          }`}
       >
         <div className="px-4 space-y-2">
           {navigation.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = item.name === "Services"
+              ? pathname.startsWith("/services")
+              : pathname === item.href;
+
+            if (item.name === "Services") {
+              return (
+                <div key={item.name} className="block">
+                  <button
+                    type="button"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={`flex w-full items-center justify-between px-3 py-2.5 rounded-md text-base font-exo text-left focus:outline-none ${useDarkText
+                        ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
+                        : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
+                      }`}
+                  >
+                    <span>{item.name}</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Mobile Submenu */}
+                  <div
+                    className={`pl-4 pr-3 mt-1 space-y-1 overflow-hidden transition-all duration-300 ${mobileServicesOpen ? "max-h-[300px] opacity-100 py-1" : "max-h-0 opacity-0 py-0"
+                      }`}
+                  >
+                    {servicesList.map((service) => {
+                      const isSubActive = pathname === service.href;
+                      return (
+                        <Link
+                          key={service.name}
+                          href={service.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-roboto font-normal transition-all ${useDarkText
+                              ? isSubActive
+                                ? "bg-gray-100 text-[#001729] font-semibold"
+                                : "text-gray-500 hover:text-[#529e0b] hover:bg-gray-50"
+                              : isSubActive
+                                ? "bg-white/10 text-white font-semibold"
+                                : "text-white/70 hover:text-[#72D210] hover:bg-white/5"
+                            }`}
+                        >
+                          <svg
+                            className="w-3 h-3 opacity-60 shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                          </svg>
+                          <span>{service.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2.5 rounded-md text-base font-exo ${
-                  useDarkText
+                className={`block px-3 py-2.5 rounded-md text-base font-exo ${useDarkText
                     ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
                     : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
-                }`}
+                  }`}
               >
                 {item.name}
               </Link>

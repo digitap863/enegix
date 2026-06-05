@@ -1,10 +1,47 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 
 export default function HeroBanner() {
+  const texts = [
+    "SAFE. RELIABLE.\nBUILT TO PERFORM",
+    "ENGINEERING TRUST\nINTO EVERY SYSTEM",
+  ];
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(120);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullText = texts[currentTextIndex];
+      if (!isDeleting) {
+        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+        setTypingSpeed(100);
+
+        if (displayedText === fullText) {
+          setTypingSpeed(2000); // pause on full text
+          setIsDeleting(true);
+        }
+      } else {
+        setDisplayedText(fullText.substring(0, displayedText.length - 1));
+        setTypingSpeed(40); // faster delete
+
+        if (displayedText === "") {
+          setIsDeleting(false);
+          setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+          setTypingSpeed(400); // pause before next text
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, typingSpeed, currentTextIndex]);
+
   const features = [
     {
       icon: "/assets/Home_Banner/shield.png",
@@ -93,10 +130,16 @@ export default function HeroBanner() {
           {/* Heading (Exo font) */}
           <motion.h1 
             variants={itemVariants}
-            className="font-exo font-extrabold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[54px] tracking-tight leading-tight uppercase mb-6"
+            className="font-exo font-extrabold text-white text-3xl sm:text-4xl md:text-5xl lg:text-[54px] tracking-tight leading-tight uppercase mb-6 min-h-[72px] sm:min-h-[90px] md:min-h-[120px] lg:min-h-[135px]"
           >
-            SAFE. RELIABLE.<br />
-            BUILT TO PERFORM
+            {displayedText.split("\n").map((line, i, arr) => (
+              <span key={i} className="block relative">
+                {line}
+                {i === arr.length - 1 && (
+                  <span className="inline-block w-[3px] h-[24px] sm:h-[32px] md:h-[42px] lg:h-[48px] bg-[#72D210] ml-1 animate-pulse align-middle" />
+                )}
+              </span>
+            ))}
           </motion.h1>
 
           {/* Paragraph description (Roboto font) */}
