@@ -206,7 +206,7 @@ export default function Header() {
             {/* Quote Button (Desktop) */}
             <div className="hidden lg:flex items-center">
               <a
-                href="#quote"
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-[#4E9208] hover:bg-[#3a6f06] text-white text-[16px] leading-[26px] font-normal px-5 py-2.5 rounded-sm shadow-sm transition-all hover:shadow-md uppercase"
               >
                 <span>Request a Quote</span>

@@ -248,31 +248,31 @@ solutions: [
     number: "01",
     title: "LABORATORY GAS SYSTEMS (HIGH-PURITY & SPECIALTY GASES)",
     desc: "Pure gas delivery systems built for research, testing, and innovation.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/laboratory/solution1.png"
   },
   {
     number: "02",
     title: "HIGH-PURITY GAS PURIFICATION SYSTEMS",
     desc: "Automatic manifold systems ensuring uninterrupted gas supply for laboratory applications.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/laboratory/solution2.png"
   },
   {
     number: "03",
     title: "GAS BOOSTER & PRESSURE INTENSIFIER SYSTEMS",
     desc: "Precision gas reticulation and distribution networks engineered for reliability and purity.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/laboratory/solution3.png"
   },
   {
     number: "04",
     title: "VENTILATION & EXHAUST SYSTEM",
     desc: "Safe airflow, fume extraction, and ventilation systems designed for laboratory environments.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/laboratory/solution4.png"
   },
   {
     number: "05",
     title: "LABORATORY FURNITURE & FIXTURES",
     desc: "Custom laboratory benches, workstations, storage systems, and utility-integrated furniture solutions.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/laboratory/solution5.png"
   }
 ]
   },
@@ -328,31 +328,31 @@ solutions: [
     number: "01",
     title: "DIESEL STORAGE TANKS",
     desc: "Bulk storage tanks and day tanks designed for safe and efficient fuel storage applications.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/fuel_oil/solution1.png"
   },
   {
     number: "02",
     title: "PUMP SKID SYSTEMS",
     desc: "High-performance fuel transfer pump skids engineered for reliable fuel circulation and delivery.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/fuel_oil/solution2.png"
   },
   {
     number: "03",
     title: "FUEL DISTRIBUTION PIPING NETWORK",
     desc: "Durable fuel piping systems designed for safe, continuous, and leak-free fuel distribution.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/fuel_oil/solution3.png"
   },
   {
     number: "04",
     title: "FUEL TRANSFER SYSTEM",
     desc: "Automated fuel transfer systems ensuring uninterrupted fuel supply between storage and operational units.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/fuel_oil/solution4.png"
   },
   {
     number: "05",
     title: "FUEL MONITORING & CONTROL SYSTEM",
     desc: "Integrated monitoring panels and control systems for fuel level management and operational safety.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/fuel_oil/solution5.png"
   }
 ]
   },
@@ -408,31 +408,31 @@ solutions: [
     number: "01",
     title: "PREVENTIVE MAINTENANCE",
     desc: "Routine inspections and scheduled servicing to minimize downtime and extend equipment life.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/maintentance/solution1.png"
   },
   {
     number: "02",
     title: "CORRECTIVE MAINTENANCE",
     desc: "Rapid fault diagnosis and repair services for uninterrupted system operation.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/maintentance/solution2.png"
   },
   {
     number: "03",
     title: "SYSTEM TESTING & CALIBRATION",
     desc: "Performance testing, pressure verification, and calibration of gas systems and safety devices.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/maintentance/solution3.png"
   },
   {
     number: "04",
     title: "LEAK DETECTION & SAFETY AUDIT",
     desc: "Comprehensive leak detection and safety inspections to maintain compliance and operational safety.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/maintentance/solution4.png"
   },
   {
     number: "05",
     title: "EMERGENCY BREAKDOWN SUPPORT",
     desc: "24/7 technical support and emergency response services for critical gas infrastructure.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/maintentance/solution5.png"
   }
 ]
   },
@@ -487,31 +487,31 @@ solutions: [
     number: "01",
     title: "EMERGENCY LEAK DETECTION",
     desc: "Rapid gas leak identification using advanced testing and detection equipment.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/emergency/solution1.png"
   },
   {
     number: "02",
     title: "PIPELINE REPAIR SERVICES",
     desc: "Emergency repair and replacement of damaged gas pipelines and fittings.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/emergency/solution2.png"
   },
   {
     number: "03",
     title: "PRESSURE FAILURE RESPONSE",
     desc: "Immediate troubleshooting and correction of gas pressure and supply failures.",
-    image: "/assets/Home_Service/image.png"
+    image: "/assets/Service/emergency/solution3.png"
   },
   {
     number: "04",
     title: "EMERGENCY MANIFOLD SUPPORT",
     desc: "Rapid response services for manifold system failures and gas supply interruptions.",
-    image: "/assets/Service/Lpg_system_banner.png"
+    image: "/assets/Service/emergency/solution4.png"
   },
   {
     number: "05",
     title: "SAFETY INSPECTION & RESTART",
     desc: "Rapid response services for manifold system failures and gas supply interruptions.",
-    image: "/assets/About/secondSection.png"
+    image: "/assets/Service/emergency/solution5.png"
   }
 ]
   }

@@ -90,8 +90,8 @@ export default function ServiceSolutions({ service }: ServiceSolutionsProps) {
                   whileHover={{ y: -8, transition: { duration: 0.25 } }}
                   className="bg-white border border-gray-200/80 rounded-2xl shadow-[3px_6px_16px_rgba(4,27,58,0.08)] hover:shadow-[3px_12px_24px_rgba(4,27,58,0.16)] transition-all duration-300 flex flex-col h-[400px] sm:h-[420px] overflow-hidden mx-1"
                 >
-                  {/* Card Image Wrapper with Bottom Accent Border */}
-                  <div className="relative w-full h-[160px] sm:h-[180px] shrink-0 bg-[#041B3A]/10 overflow-hidden border-b-[8px] border-[#041B3A]">
+                  {/* Card Image Wrapper */}
+                  <div className="relative w-full h-[180px] sm:h-[200px] shrink-0 bg-[#041B3A]/5 overflow-hidden">
                     <Image
                       src={sol.image}
                       alt={sol.title}

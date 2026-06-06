@@ -118,7 +118,7 @@ export default function ServiceDetailsContent({ service }: ServiceDetailsContent
           <motion.div 
             key={idx} 
             className="flex gap-4 items-start p-6 sm:p-8 group cursor-default"
-            whileHover={{ backgroundColor: "rgba(248, 250, 252, 0.5)", transition: { duration: 0.2 } }}
+            // whileHover={{ backgroundColor: "rgba(248, 250, 252, 0.5)", transition: { duration: 0.2 } }}
           >
             <div className="relative w-10 h-10 shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110">
               <Image

@@ -116,7 +116,7 @@ export default function Footer() {
           {/* Action button */}
           <div className="shrink-0 text-center lg:text-right">
             <a
-              href="#quote"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 bg-[#4E9208] hover:bg-[#3a6f06] text-white text-[16px] leading-[26px] font-normal px-5 py-2.5 rounded-sm shadow-sm transition-all hover:shadow-md uppercase"
             >
               <span>Request a Quote</span>

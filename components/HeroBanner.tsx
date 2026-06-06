@@ -124,7 +124,7 @@ export default function HeroBanner() {
             variants={itemVariants}
             className="font-roboto font-bold text-[#72D210] uppercase tracking-widest text-xs md:text-sm mb-4 block"
           >
-            TRUSTED GAS SYSTEM SPECILISTS
+            TRUSTED GAS SYSTEM SPECIALISTS
           </motion.span>
 
           {/* Heading (Exo font) */}
