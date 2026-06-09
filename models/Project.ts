@@ -31,7 +31,6 @@ const ProjectSchema = new Schema<IProject>(
     },
     year: {
       type: Number,
-      required: [true, "Year is required"],
     },
     title: {
       type: String,
@@ -40,17 +39,14 @@ const ProjectSchema = new Schema<IProject>(
     },
     client: {
       type: String,
-      required: [true, "Client is required"],
       trim: true,
     },
     location: {
       type: String,
-      required: [true, "Location is required"],
       trim: true,
     },
     description: {
       type: String,
-      required: [true, "Description is required"],
       trim: true,
     },
     image: {

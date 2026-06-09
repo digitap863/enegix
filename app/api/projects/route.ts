@@ -21,6 +21,21 @@ export async function POST(request: Request) {
   try {
     await dbConnect();
     const body = await request.json();
+    
+    // Auto-generate projectCode if not provided
+    if (!body.projectCode) {
+      let isUnique = false;
+      let generatedCode = "";
+      while (!isUnique) {
+        generatedCode = `P-${Math.floor(100000 + Math.random() * 900000)}`;
+        const existing = await Project.findOne({ projectCode: generatedCode });
+        if (!existing) {
+          isUnique = true;
+        }
+      }
+      body.projectCode = generatedCode;
+    }
+
     const project = await Project.create(body);
     return NextResponse.json({ success: true, data: project }, { status: 201 });
   } catch (error: any) {

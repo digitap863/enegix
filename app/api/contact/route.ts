@@ -3,6 +3,21 @@ import dbConnect from "@/lib/dbConnect";
 import ContactSubmission from "@/models/ContactSubmission";
 import nodemailer from "nodemailer";
 
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    await dbConnect();
+    const submissions = await ContactSubmission.find({}).sort({ createdAt: -1 });
+    return NextResponse.json({ success: true, data: submissions });
+  } catch (error: any) {
+    return NextResponse.json(
+      { success: false, error: error.message || "Failed to fetch enquiries" },
+      { status: 400 }
+    );
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();

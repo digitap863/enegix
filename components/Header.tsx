@@ -22,6 +22,11 @@ export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
+
   const isLightPage = pathname === "/contact" || pathname === "/blog";
   const useDarkText = scrolled;
 
