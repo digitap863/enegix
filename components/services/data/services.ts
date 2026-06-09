@@ -100,7 +100,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "03",
         title: "GAS LEAK DETECTION SYSTEM",
         desc: "Advanced gas leak detection systems for early warning and enhanced safety.",
-        image: "/assets/Service/lpg/gasleak_detection.png"
+        image: "/assets/Service/lpg/3.png"
       },
       {
         number: "04",
@@ -112,7 +112,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "05",
         title: "PRESSURE REDUCING & METERING STATION(PRMS)",
         desc: "Accurate pressure reduction and metering for safe and consistent gas supply",
-        image: "/assets/Service/lpg/pressureReducing_station.png"
+        image: "/assets/Service/lpg/5.png"
       }
     ]
   },
@@ -167,19 +167,19 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "01",
         title: "Medical gas & pipeline distribution system",
         desc: "Centralized medical gas pipeline systems ensuring safe, reliable, continuous gas delivery with optimal purity and pressure.",
-        image: "/assets/Service/medical/solution1.png"
+        image: "/assets/Service/medical/1.png"
       },
       {
         number: "02",
         title: "Medical Vacuum System ",
         desc: "Reliable vacuum systems designed for surgical procedures, patient suction, and critical medical applications.",
-        image: "/assets/Service/medical/solution2.png"
+        image: "/assets/Service/medical/2.png"
       },
       {
         number: "03",
         title: "Medical gas outlets",
         desc: "High-quality, color-coded outlets for safe and convenient access to medical gases at the point of use.",
-        image: "/assets/Service/medical/solution3.png"
+        image: "/assets/Service/medical/3.png"
       },
       {
         number: "04",
@@ -191,7 +191,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "05",
         title: "Medical gas manifold system",
         desc: "Automatic changeover manifold system to ensure uninterrupted supply of medical gases from multiple cylinders.",
-        image: "/assets/Service/medical/solution5.png"
+        image: "/assets/Service/medical/5.png"
       }
     ]
   },
@@ -248,19 +248,19 @@ solutions: [
     number: "01",
     title: "LABORATORY GAS SYSTEMS (HIGH-PURITY & SPECIALTY GASES)",
     desc: "Pure gas delivery systems built for research, testing, and innovation.",
-    image: "/assets/Service/laboratory/solution1.png"
+    image: "/assets/Service/laboratory/1.png"
   },
   {
     number: "02",
     title: "HIGH-PURITY GAS PURIFICATION SYSTEMS",
     desc: "Automatic manifold systems ensuring uninterrupted gas supply for laboratory applications.",
-    image: "/assets/Service/laboratory/solution2.png"
+    image: "/assets/Service/laboratory/2.png"
   },
   {
     number: "03",
     title: "GAS BOOSTER & PRESSURE INTENSIFIER SYSTEMS",
     desc: "Precision gas reticulation and distribution networks engineered for reliability and purity.",
-    image: "/assets/Service/laboratory/solution3.png"
+    image: "/assets/Service/laboratory/3.png"
   },
   {
     number: "04",
@@ -272,7 +272,7 @@ solutions: [
     number: "05",
     title: "LABORATORY FURNITURE & FIXTURES",
     desc: "Custom laboratory benches, workstations, storage systems, and utility-integrated furniture solutions.",
-    image: "/assets/Service/laboratory/solution5.png"
+    image: "/assets/Service/laboratory/5.png"
   }
 ]
   },

@@ -24,16 +24,20 @@ export async function POST(request: Request) {
     
     // Auto-generate projectCode if not provided
     if (!body.projectCode) {
-      let isUnique = false;
-      let generatedCode = "";
-      while (!isUnique) {
-        generatedCode = `P-${Math.floor(100000 + Math.random() * 900000)}`;
-        const existing = await Project.findOne({ projectCode: generatedCode });
-        if (!existing) {
-          isUnique = true;
+      const projects = await Project.find({}, { projectCode: 1 });
+      let maxNum = 0;
+      projects.forEach((p) => {
+        if (p.projectCode && p.projectCode.startsWith("P-")) {
+          const numPart = p.projectCode.substring(2);
+          const parsed = parseInt(numPart, 10);
+          if (!isNaN(parsed) && parsed > maxNum) {
+            maxNum = parsed;
+          }
         }
-      }
-      body.projectCode = generatedCode;
+      });
+      const nextNum = maxNum + 1;
+      const formattedNum = nextNum < 10 ? `0${nextNum}` : `${nextNum}`;
+      body.projectCode = `P-${formattedNum}`;
     }
 
     const project = await Project.create(body);
