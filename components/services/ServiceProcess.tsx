@@ -42,7 +42,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-24 border-t border-gray-100 overflow-hidden">
+    <section className="bg-white py-16 md:py-24  overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -71,7 +71,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
         <div className="relative">
           {/* We use a flex container that wraps on mobile but stays in a row on desktop */}
           <motion.div 
-            className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-2"
+            className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-0 max-w-6xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -82,7 +82,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
                 {/* Step Item */}
                 <motion.div 
                   variants={itemVariants}
-                  className="flex flex-col items-center text-center w-full lg:w-[150px] shrink-0"
+                  className="flex flex-col items-center text-center w-full lg:w-[130px] xl:w-[150px] shrink-0"
                 >
                   <span className="font-roboto font-bold text-[#72D210] text-[22px] md:text-[26px] mb-4 block">
                     {step.number}
@@ -96,7 +96,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
                 {index < steps.length - 1 && (
                   <motion.div 
                     variants={itemVariants}
-                    className="hidden lg:flex items-center justify-center flex-grow opacity-60"
+                    className="hidden lg:flex items-center justify-center w-12 xl:w-16 shrink-0 opacity-60 pt-1.5"
                   >
                     <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 10H58M58 10L50 4M58 10L50 16" stroke="#72D210" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

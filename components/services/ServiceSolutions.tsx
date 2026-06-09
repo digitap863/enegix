@@ -28,7 +28,7 @@ export default function ServiceSolutions({ service }: ServiceSolutionsProps) {
   if (!service.solutions || service.solutions.length === 0) return null;
 
   return (
-    <section className="bg-white py-16 md:py-24 border-t border-gray-100">
+    <section className="bg-white py-16 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

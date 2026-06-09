@@ -74,15 +74,7 @@ export default function ProductsSection() {
             >
               Quality Work. Proven Results.
             </motion.h2>
-            {/* Sliding green underline */}
-            <motion.div
-              className="h-[3px] bg-gradient-to-r from-[#72D210] to-[#4E9208] rounded-full mt-2 mx-auto"
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-              style={{ originX: 0.5 }}
-            />
+
           </div>
         </div>
 

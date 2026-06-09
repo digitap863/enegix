@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollNavigator from "@/components/ScrollNavigator";
 
 export default function RootLayout({
   children,
@@ -43,6 +44,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${exo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white">
+        <ScrollNavigator />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

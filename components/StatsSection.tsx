@@ -137,8 +137,7 @@ export default function StatsSection() {
         }}
       />
 
-      {/* Bottom green accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#72D210] via-[#4E9208]/60 to-transparent" />
+
 
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">

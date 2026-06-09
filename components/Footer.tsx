@@ -159,7 +159,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-              Reliable LPG, medical, and laboratory gas systems for modern facilities.
+              Reliable LPG, medical, and laboratory gas <br /> systems for modern facilities.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-5 pt-2">

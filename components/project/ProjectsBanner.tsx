@@ -34,8 +34,7 @@ export default function ProjectsBanner() {
       {/* Dark blue gradient overlay — heavy left, fades right */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#041B3A]/92 via-[#041B3A]/65 to-[#041B3A]/25 pointer-events-none" />
 
-      {/* Subtle bottom green accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#72D210] via-[#4E9208]/50 to-transparent" />
+
 
       {/* Content */}
       <motion.div

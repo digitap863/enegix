@@ -157,7 +157,7 @@ export default function HeroBanner() {
           >
             {/* Primary CTA — pulsing glow */}
             <Link
-              href="#start"
+              href="/contact"
               className="relative inline-flex items-center justify-center bg-[#4E9208] hover:bg-[#3d7306] active:scale-95
                          text-white text-[15px] leading-[26px] font-bold px-7 py-3 rounded-sm shadow-md
                          transition-all duration-300 uppercase text-center font-roboto

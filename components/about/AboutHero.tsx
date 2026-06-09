@@ -32,8 +32,7 @@ export default function AboutHero() {
       {/* Dark gradient overlay — heavier on the left where text sits */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#041B3A]/90 via-[#041B3A]/50 to-transparent pointer-events-none" />
 
-      {/* Bottom green accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#72D210] via-[#4E9208]/50 to-transparent" />
+
 
       {/* Content */}
       <motion.div
@@ -65,7 +64,7 @@ export default function AboutHero() {
           {/* Description — Roboto font */}
           <motion.p
             variants={itemVariants}
-            className="font-roboto  text-sm md:text-base leading-relaxed max-w-xl"
+            className="font-roboto  text-sm md:text-base  text-white leading-relaxed max-w-xl"
           >
             ENEGIX delivers precision-engineered gas infrastructure solutions for medical,
             industrial, laboratory, and commercial environments — where safety and
