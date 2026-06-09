@@ -88,13 +88,13 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "01",
         title: "GAS STORAGE TANK",
         desc: "Supply and installation of high-quality LPG storage tanks with complete safety accessories and reliability.",
-        image: "/assets/Service/lpg/gas_storage_tank.png"
+        image: "/assets/Service/lpg/1.png"
       },
       {
         number: "02",
         title: "PRESSURE REDUCING & DISTRIBUTION PANEL(PRDP)",
         desc: "Efficient pressure regulation and safe distribution of gas to downstream systems.",
-        image: "/assets/Service/lpg/pressure_reducing.png"
+        image: "/assets/Service/lpg/2.png"
       },
       {
         number: "03",
@@ -106,7 +106,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "04",
         title: "GAS VAPORISER",
         desc: "High performance vaporisers for efficient conversion of liquid LPG to gas.",
-        image: "/assets/Service/lpg/vaporiser.png"
+        image: "/assets/Service/lpg/4.jpeg"
       },
       {
         number: "05",
@@ -166,7 +166,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
       {
         number: "01",
         title: "Medical gas & pipeline distribution system",
-        desc: "Centralized medical gas pipeline and distribution networks engineered to ensure safe, reliable, and continuous delivery with optimal purity and pressure.",
+        desc: "Centralized medical gas pipeline systems ensuring safe, reliable, continuous gas delivery with optimal purity and pressure.",
         image: "/assets/Service/medical/solution1.png"
       },
       {
@@ -185,7 +185,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
         number: "04",
         title: "Medical air system",
         desc: "Clean and continuous medical-grade compressed air system engineered to meet healthcare standards.",
-        image: "/assets/Service/medical/solution4.png"
+        image: "/assets/Service/medical/4.jpeg"
       },
       {
         number: "05",
@@ -266,7 +266,7 @@ solutions: [
     number: "04",
     title: "VENTILATION & EXHAUST SYSTEM",
     desc: "Safe airflow, fume extraction, and ventilation systems designed for laboratory environments.",
-    image: "/assets/Service/laboratory/solution4.png"
+    image: "/assets/Service/laboratory/4.jpeg"
   },
   {
     number: "05",
@@ -346,7 +346,7 @@ solutions: [
     number: "04",
     title: "FUEL TRANSFER SYSTEM",
     desc: "Automated fuel transfer systems ensuring uninterrupted fuel supply between storage and operational units.",
-    image: "/assets/Service/fuel_oil/solution4.png"
+    image: "/assets/Service/fuel_oil/4.jpeg"
   },
   {
     number: "05",
@@ -426,7 +426,7 @@ solutions: [
     number: "04",
     title: "LEAK DETECTION & SAFETY AUDIT",
     desc: "Comprehensive leak detection and safety inspections to maintain compliance and operational safety.",
-    image: "/assets/Service/maintentance/solution4.png"
+    image: "/assets/Service/maintentance/4.jpeg"
   },
   {
     number: "05",

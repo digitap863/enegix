@@ -23,7 +23,7 @@ const logoVariants: Variants = {
 };
 
 const certs = [
-  { src: "/assets/About/eagle.png", alt: "Eagle Certification", width: "w-40 sm:w-24 h-34" },
+  { src: "/assets/About/eagle.jpeg", alt: "Eagle Certification", width: "w-40 sm:w-24 h-34" },
   { src: "/assets/About/eiaci.png", alt: "EIACI Certification", width: "w-36 sm:w-44 h-24" },
   { src: "/assets/About/ISO_2018.png", alt: "ISO 45001:2018 Certified Company", width: "w-24 sm:w-28 h-28" },
   { src: "/assets/About/ISO_9001.png", alt: "ISO 9001:2015 Certified Company", width: "w-24 sm:w-28 h-28" },
