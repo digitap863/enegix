@@ -44,7 +44,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
     subtitle: "LPG/SNG System",
     breadcrumb: "LPG SYSTEMS",
     description: "From concept drawings to commissioned systems — ENEGIX engineers, installs, certifies and maintains the gas networks that keep critical facilities running.",
-    bannerImage: "/assets/Service/Lpg_system_banner.png",
+    bannerImage: "/assets/Service/lpg/Lpg_system_banner.png",
     
     // Details
     detailsLabel: "SERVICE",
