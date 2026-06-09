@@ -212,13 +212,13 @@ export default function AdminContactsPage() {
               </div>
               <div>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Phone Number</span>
-                <a href={`tel:${selectedEnquiry.phone}`} className="text-slate-750 font-medium hover:underline hover:text-[#4E9208]">
+                <a href={`tel:${selectedEnquiry.phone}`} className="text-black font-medium hover:underline hover:text-[#4E9208]">
                   {selectedEnquiry.phone}
                 </a>
               </div>
               <div className="sm:col-span-2">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Email Address</span>
-                <a href={`mailto:${selectedEnquiry.email}`} className="text-slate-750 font-medium hover:underline hover:text-[#4E9208]">
+                <a href={`mailto:${selectedEnquiry.email}`} className="text-black font-medium hover:underline hover:text-[#4E9208]">
                   {selectedEnquiry.email}
                 </a>
               </div>
@@ -226,7 +226,7 @@ export default function AdminContactsPage() {
 
             <div className="space-y-2">
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Message Body</span>
-              <p className="text-sm text-slate-700 bg-slate-50 p-4 rounded-md whitespace-pre-wrap leading-relaxed border border-slate-100 font-sans">
+              <p className="text-sm text-black bg-slate-50 p-4 rounded-md whitespace-pre-wrap leading-relaxed border border-slate-100 font-sans">
                 {selectedEnquiry.message}
               </p>
             </div>
@@ -234,7 +234,7 @@ export default function AdminContactsPage() {
             <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-100">
               <button
                 onClick={() => setDeleteId(selectedEnquiry._id)}
-                className="px-4 py-2 bg-red-50 hover:bg-red-100 text-red-650 hover:text-red-800 rounded-md text-sm font-semibold transition-colors flex items-center gap-1.5"
+                className="px-4 py-2 bg-red-100 hover:bg-red-200 text-black hover:text-red-800 rounded-md text-sm font-semibold transition-colors flex items-center gap-1.5"
               >
                 <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
