@@ -25,7 +25,7 @@ const exo = Exo({
 });
 
 export const metadata: Metadata = {
-  title: "Egenix",
+  title: "Enegix",
   description: "",
 };
 
