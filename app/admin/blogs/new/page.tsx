@@ -329,54 +329,73 @@ function BlogFormContent() {
           <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-xs space-y-4">
             <h4 className="font-exo font-bold text-slate-800 border-b border-slate-100 pb-3">Featured Image</h4>
             
-            {imageUrl ? (
-              <div className="space-y-3">
-                <div className="w-full h-40 relative rounded-md overflow-hidden border border-slate-200 bg-slate-50">
-                  <img src={imageUrl} alt="Featured Preview" className="w-full h-full object-cover" />
+            <div className="relative border-2 border-dashed border-slate-200 rounded-md p-4 text-center hover:border-[#72D210]/50 transition-colors group min-h-[160px] flex flex-col justify-center items-center bg-slate-50 overflow-hidden">
+              {isUploading ? (
+                <div className="flex flex-col items-center gap-2 z-20">
+                  <div className="w-8 h-8 border-2 border-slate-300 border-t-[#72D210] rounded-full animate-spin"></div>
+                  <span className="text-xs text-slate-400">Uploading to Cloudinary...</span>
                 </div>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-1.5 text-xs"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setImageUrl("")}
-                    className="p-1.5 bg-red-50 text-red-600 rounded-md hover:bg-red-100 transition-colors shrink-0"
-                    title="Remove Image"
-                  >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              ) : imageUrl ? (
+                <>
+                  {/* Image Preview */}
+                  <img src={imageUrl} alt="Featured Preview" className="absolute inset-0 w-full h-full object-cover z-0" />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 z-10 pointer-events-none">
+                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375 0 11-.75 0 .375 0 017.75 0z" />
                     </svg>
-                  </button>
+                    <p className="text-xs font-semibold text-white">Click or drag to change image</p>
+                  </div>
+                </>
+              ) : (
+                <div className="space-y-2 z-0">
+                  <svg className="w-8 h-8 mx-auto text-slate-350" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375 0 11-.75 0 .375 0 017.75 0z" />
+                  </svg>
+                  <p className="text-xs font-semibold text-slate-600">Click to upload featured image</p>
+                  <p className="text-[10px] text-slate-400">PNG, JPG or WEBP up to 5MB</p>
                 </div>
-              </div>
-            ) : (
-              <div className="border-2 border-dashed border-slate-200 rounded-md p-6 text-center space-y-2 hover:border-[#72D210]/50 transition-colors relative cursor-pointer">
+              )}
+
+              {/* The File Input — covers everything else except the remove button */}
+              {!isUploading && (
                 <input
                   type="file"
                   accept="image/*"
                   onChange={handleImageUpload}
-                  disabled={isUploading}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
                 />
-                
-                {isUploading ? (
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-8 h-8 border-2 border-slate-300 border-t-[#72D210] rounded-full animate-spin"></div>
-                    <span className="text-xs text-slate-400">Uploading to Cloudinary...</span>
-                  </div>
-                ) : (
-                  <>
-                    <svg className="w-8 h-8 mx-auto text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375 0 11-.75 0 .375 0 017.75 0z" />
-                    </svg>
-                    <p className="text-xs font-semibold text-slate-600">Click to upload featured image</p>
-                    <p className="text-[10px] text-slate-400">PNG, JPG or WEBP up to 5MB</p>
-                  </>
-                )}
+              )}
+
+              {/* Remove Button in corner — z-30 to stay on top of the file input */}
+              {imageUrl && !isUploading && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setImageUrl("");
+                  }}
+                  className="absolute top-2 right-2 p-1.5 bg-red-600 hover:bg-red-700 text-white rounded-md transition-colors z-30 shadow-md"
+                  title="Remove Image"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
+              )}
+            </div>
+
+            {imageUrl && (
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={imageUrl}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-md px-3 py-1.5 text-xs text-slate-600 focus:outline-none focus:border-[#72D210]"
+                  placeholder="Image URL"
+                />
               </div>
             )}
             

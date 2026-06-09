@@ -1,5 +1,4 @@
-import React, { useMemo } from "react";
-import Image from "next/image";
+import { useMemo } from "react";
 import WidgetHeading from "./WidgetHeading";
 import type { BlogPost } from "./types/blog.types";
 
@@ -23,7 +22,7 @@ export default function RecentPostsWidget({
               onClick={() => onSelect(post.id)}
             >
               <div className="relative w-14 h-14 shrink-0 overflow-hidden rounded-sm border border-gray-100">
-                <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="56px" />
+                <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="flex items-center gap-1 text-[10px] font-roboto text-gray-400 mb-0.5">

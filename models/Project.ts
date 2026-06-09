@@ -51,7 +51,6 @@ const ProjectSchema = new Schema<IProject>(
     },
     image: {
       type: String,
-      default: "/assets/Project/Banner.png",
     },
   },
   {

@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { BlogPost } from "./types/blog.types";
 import { renderMarkdown } from "./utils/renderMarkdown";
@@ -30,12 +28,10 @@ export default function BlogPostCard({
         style={{ height: "220px" }}
         onClick={() => onToggle(post.id)}
       >
-        <Image
+        <img
           src={post.image}
           alt={post.title}
-          fill
-          className={`object-cover transition-transform duration-500 ${isExpanded ? "scale-105" : "hover:scale-105"}`}
-          sizes="(max-width: 768px) 100vw, 680px"
+          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ${isExpanded ? "scale-105" : "hover:scale-105"}`}
         />
         {/* Gradient overlay when expanded */}
         <AnimatePresence>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, type Variants } from "framer-motion";
 
@@ -28,11 +27,11 @@ export default function ProductsSection() {
   useEffect(() => {
     async function fetchLatestProjects() {
       try {
-        const res = await fetch("/api/projects");
+        const res = await fetch(`/api/projects?t=${Date.now()}`);
         const json = await res.json();
         if (json.success && Array.isArray(json.data)) {
           const mapped = json.data.slice(0, 4).map((p: any) => ({
-            image: p.image || "/assets/Project/Banner.png",
+            image: p.image,
             title: p.title,
             tags: [p.category],
             link: "/projects",
@@ -108,12 +107,10 @@ export default function ProductsSection() {
               >
                 {/* Image container */}
                 <div className="relative w-full aspect-[4/3] overflow-hidden">
-                  <Image
+                  <img
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 300px"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#041B3A]/60 via-transparent to-transparent
@@ -131,7 +128,7 @@ export default function ProductsSection() {
 
                 {/* Card body */}
                 <div className="p-3 sm:p-4 text-center">
-                  <h3 className="font-roboto font-bold text-[#041B3A] text-base sm:text-sm uppercase tracking-wide mb-1 line-clamp-1">
+                  <h3 className="font-roboto font-bold text-[#041B3A] text-base sm:text-sm uppercase tracking-wide mb-1">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap gap-1 justify-center">

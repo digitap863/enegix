@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ─────────────────────────────────────────
@@ -175,12 +174,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* ── Image ── */}
       <div className="relative h-32 sm:h-52 shrink-0 overflow-hidden">
-        <Image
+        <img
           src={project.image}
           alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
 
         {/* Category badge — top left on image */}
@@ -244,7 +241,7 @@ export default function ProjectsGrid() {
   useEffect(() => {
     async function fetchProjects() {
       try {
-        const res = await fetch("/api/projects");
+        const res = await fetch(`/api/projects?t=${Date.now()}`);
         const json = await res.json();
         if (json.success && Array.isArray(json.data) && json.data.length > 0) {
           const mapped = json.data.map((p: any) => ({
@@ -256,7 +253,7 @@ export default function ProjectsGrid() {
             client: p.client,
             location: p.location,
             description: p.description,
-            image: p.image || "/assets/Project/Banner.png",
+            image: p.image,
           }));
           setProjectsList(mapped);
         } else {
