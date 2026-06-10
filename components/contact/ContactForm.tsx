@@ -177,10 +177,16 @@ export default function ContactForm() {
                     Contact Us
                   </span>
                   <a
-                    href="tel:+910000000000"
+                    href="tel:+97145758258"
                     className="font-roboto text-gray-300 text-sm hover:text-[#72D210] transition-colors"
                   >
-                    +91 0000 000 000
+                    +971 4 575 8258
+                  </a>
+                  <a
+                    href="tel:+971564166050"
+                    className="font-roboto text-gray-300 text-sm hover:text-[#72D210] transition-colors mt-1"
+                  >
+                    +971 56 416 6050
                   </a>
                 </div>
               </div>

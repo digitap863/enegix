@@ -85,7 +85,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-wrap items-center gap-5 justify-center">
-            <a href="tel:+97145936064" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
+            <a href="tel:+97145758258" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
               <svg
                 className="w-4 h-4 text-white/70 shrink-0"
                 fill="currentColor"
@@ -93,7 +93,7 @@ export default function Header() {
               >
                 <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c-.01-.55-.46-1-1.01-1z" />
               </svg>
-              <span>+971 4 593 6064</span>
+              <span>+971 4 575 8258</span>
             </a>
 
             <a href="mailto:info@enegixtec.com" className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">

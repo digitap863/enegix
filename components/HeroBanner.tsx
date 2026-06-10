@@ -168,7 +168,7 @@ export default function HeroBanner() {
             </Link>
 
             <a
-              href="tel:+97145936064"
+              href="tel:+97145758258"
               className="inline-flex items-center justify-center gap-2 border-2 border-white hover:border-[#4E9208]
                          hover:text-[#4E9208] active:scale-95 text-white text-[15px] leading-[26px] font-bold
                          px-7 py-2.5 rounded-sm transition-all uppercase text-center font-roboto group"

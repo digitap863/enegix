@@ -12,9 +12,9 @@ export default function Footer() {
   }
   const quickLinks = [
     { name: "About Us", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "FAQs", href: "/faqs" },
-    { name: "Teams", href: "/teams" },
+    { name: "Projects", href: "/projects" },
+    // { name: "Certifications", href: "/certifications" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -100,8 +100,8 @@ export default function Footer() {
               </svg>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase leading-none mb-1">Call Us Now</span>
-                <a href="tel:123456789" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">12 345 6789</a>
-                <a href="tel:123456789" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">12 345 6789</a>
+                <a href="tel:+97145758258" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 4 575 8258</a>
+                <a href="tel:+971564166050" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 56 416 6050</a>
               </div>
             </div>
 
@@ -114,9 +114,8 @@ export default function Footer() {
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.167 1.449 4.753 1.451 5.405 0 9.803-4.364 9.805-9.728.002-2.597-1.005-5.04-2.838-6.87a9.638 9.638 0 0 0-6.862-2.846C6.012 1.16 1.616 5.526 1.614 10.89c-.001 1.69.444 3.336 1.289 4.773l-1.02 3.722 3.821-.996c1.4.762 2.946 1.165 4.933 1.165zm10.793-7.41c-.297-.15-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.568-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
               </svg>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase leading-none mb-1">Call Us Now</span>
-                <a href="tel:123456789" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">12 345 6789</a>
-                <a href="tel:123456789" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">12 345 6789</a>
+                <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase leading-none mb-1">WhatsApp Us</span>
+                <a href="https://wa.me/971564166050" target="_blank" rel="noopener noreferrer" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 56 416 6050</a>
               </div>
             </div>
           </div>
@@ -231,9 +230,14 @@ export default function Footer() {
                     <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.045 15.045 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c-.01-.55-.46-1-1.01-1z" />
                   </svg>
                 </span>
-                <a href="tel:+1234567890" className="text-sm text-white hover:text-[#72D210] transition-colors">
-                  +123 456 7890
-                </a>
+                <div className="flex flex-col">
+                  <a href="tel:+97145758258" className="text-sm text-white hover:text-[#72D210] transition-colors">
+                    +971 4 575 8258
+                  </a>
+                  <a href="tel:+971564166050" className="text-sm text-white hover:text-[#72D210] transition-colors mt-0.5">
+                    +971 56 416 6050
+                  </a>
+                </div>
               </li>
               {/* Email */}
               <li className="flex items-center gap-3">
