@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ─────────────────────────────────────────
    Types
 ───────────────────────────────────────── */
-type Category = "ALL" | "MEDICAL" | "INDUSTRIAL" | "LABORATORY" | "LPG" | "COMMERCIAL";
+type Category = "ALL" | "MEDICAL" | "FUEL&OIL" | "LABORATORY" | "LPG";
 
 interface Project {
   id: number | string;
@@ -20,121 +20,6 @@ interface Project {
   image: string;
 }
 
-/* ─────────────────────────────────────────
-   Demo data
-───────────────────────────────────────── */
-const DEMO_IMAGE = "/assets/Project/Banner.png";
-
-const FALLBACK_PROJECTS: Project[] = [
-  {
-    id: 1,
-    projectCode: "P-01",
-    category: "MEDICAL",
-    year: 2024,
-    title: "Tertiary Hospital Medical Gas Plant",
-    client: "Confidential Healthcare Group",
-    location: "Abu Dhabi | UAE",
-    description:
-      "Turnkey O₂, N₂O, MA4, MA7 and vacuum plant with reticulated pipework to 412 bedhead outlets, AVSU panels and master alarms — HTM 02-01 compliant.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 2,
-    projectCode: "P-02",
-    category: "INDUSTRIAL",
-    year: 2024,
-    title: "Petrochemical Nitrogen Distribution",
-    client: "Petrofac Middle East",
-    location: "Ruwais | Abu Dhabi",
-    description:
-      "High-pressure nitrogen distribution system serving 12 process units. Designed and commissioned under live operational constraints.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 3,
-    projectCode: "P-03",
-    category: "LABORATORY",
-    year: 2024,
-    title: "Research Laboratory Specialty Gases",
-    client: "Khalifa University",
-    location: "Dubai | UAE",
-    description:
-      "Specialty gas distribution covering Ar, He, H₂, N₂ and CO₂ across 32 lab benches with individual point-of-use regulators and centralised monitoring.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 4,
-    projectCode: "P-04",
-    category: "LABORATORY",
-    year: 2024,
-    title: "Research Laboratory Specialty Gases",
-    client: "UAEU Science Labs",
-    location: "Al Ain | UAE",
-    description:
-      "Piped N₂, Ar and compressed air for 45 fume hoods across 5 floors, commissioned without disrupting adjacent occupied laboratories.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 5,
-    projectCode: "P-05",
-    category: "LABORATORY",
-    year: 2024,
-    title: "Research Laboratory Specialty Gases",
-    client: "Petro Lab Emirates",
-    location: "Dubai | UAE",
-    description:
-      "Full specialty gas infrastructure for a petroleum testing laboratory with intrinsically-safe zone classification and LEL monitoring.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 6,
-    projectCode: "P-06",
-    category: "LPG",
-    year: 2024,
-    title: "Commercial LPG Distribution",
-    client: "Emaar Hospitality",
-    location: "Downtown Dubai | UAE",
-    description:
-      "Bulk LPG storage and distribution for a mixed-use hospitality complex covering 4 restaurants, banquet kitchen and central laundry.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 7,
-    projectCode: "P-07",
-    category: "MEDICAL",
-    year: 2023,
-    title: "Day Surgery Centre MGPS",
-    client: "Aster DM Healthcare",
-    location: "Sharjah | UAE",
-    description:
-      "Complete MGPS installation for a 120-bed day surgery centre including AGSS and nurse call integration.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 8,
-    projectCode: "P-08",
-    category: "COMMERCIAL",
-    year: 2023,
-    title: "Hotel Chain Gas Infrastructure",
-    client: "Rotana Hotels",
-    location: "Abu Dhabi | UAE",
-    description:
-      "LPG and CO₂ systems for a 5-star hotel — kitchen, laundry, pool and spa — with BMS integration and automatic leak detection.",
-    image: DEMO_IMAGE,
-  },
-  {
-    id: 9,
-    projectCode: "P-09",
-    category: "INDUSTRIAL",
-    year: 2023,
-    title: "Food & Beverage CO₂ System",
-    client: "Agthia Group",
-    location: "Al Ain | UAE",
-    description:
-      "High-purity food-grade CO₂ distribution for carbonation and purging lines across a large-scale beverage manufacturing facility.",
-    image: DEMO_IMAGE,
-  },
-];
 
 /* ─────────────────────────────────────────
    Config
@@ -142,19 +27,17 @@ const FALLBACK_PROJECTS: Project[] = [
 const CATEGORIES: Category[] = [
   "ALL",
   "MEDICAL",
-  "INDUSTRIAL",
+   "FUEL&OIL",
   "LABORATORY",
-  "LPG",
-  "COMMERCIAL",
+  "LPG"
 ];
 
 // Category badge colours (image overlay)
 const BADGE_COLORS: Record<Exclude<Category, "ALL">, string> = {
-  MEDICAL:    "bg-[#041B3A]",
-  INDUSTRIAL: "bg-[#b45309]",
+  MEDICAL: "bg-[#041B3A]",
+  "FUEL&OIL": "bg-[#b45309]",
   LABORATORY: "bg-[#166534]",
-  LPG:        "bg-[#6d28d9]",
-  COMMERCIAL: "bg-[#0e7490]",
+  LPG: "bg-[#6d28d9]"
 };
 
 const ITEMS_PER_PAGE = 6;
@@ -256,12 +139,10 @@ export default function ProjectsGrid() {
             image: p.image,
           }));
           setProjectsList(mapped);
-        } else {
-          setProjectsList(FALLBACK_PROJECTS);
         }
       } catch (err) {
         console.error("Failed to fetch projects from API, using fallback data:", err);
-        setProjectsList(FALLBACK_PROJECTS);
+        
       } finally {
         setLoading(false);
       }

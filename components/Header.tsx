@@ -65,7 +65,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transform font-roboto ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+    <header className={`fixed top-0 left-0 w-full z-50 transform font-outfit ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
       } ${visible ? "translate-y-0" : "-translate-y-full"
       }`}>
       {/* 1. TOP INFORMATION BAR */}
@@ -147,7 +147,7 @@ export default function Header() {
                       onMouseLeave={() => setIsDropdownOpen(false)}
                     >
                       <button
-                        className={`font-exo text-[16px] leading-[26px] flex items-center gap-1.5 cursor-pointer focus:outline-none transition-colors ${useDarkText
+                        className={`font-outfit text-[16px] leading-[26px] flex items-center gap-1.5 cursor-pointer focus:outline-none transition-colors ${useDarkText
                             ? isActive || isDropdownOpen ? "text-[#001729] font-bold" : "text-black font-normal hover:text-[#529e0b]"
                             : isActive || isDropdownOpen ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                           }`}
@@ -172,7 +172,7 @@ export default function Header() {
                               <Link
                                 key={service.name}
                                 href={service.href}
-                                className="group flex items-center gap-4 px-4 py-3.5 text-[15px] font-roboto font-normal text-white/90 rounded-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-white border border-transparent hover:border-white/15"
+                                className="group flex items-center gap-4 px-4 py-3.5 text-[15px] font-outfit font-normal text-white/90 rounded-sm transition-all duration-200 hover:bg-white/[0.08] hover:text-white border border-transparent hover:border-white/15"
                               >
                                 <svg
                                   className="w-3.5 h-3.5 text-white/70 transition-transform duration-200 group-hover:-translate-x-1 shrink-0"
@@ -197,7 +197,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`font-exo text-[16px] leading-[26px] ${useDarkText
+                    className={`font-outfit text-[16px] leading-[26px] ${useDarkText
                         ? isActive ? "text-[#001729] font-bold" : "text-black font-normal hover:text-[#529e0b]"
                         : isActive ? "text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                       }`}
@@ -273,7 +273,7 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className={`flex w-full items-center justify-between px-3 py-2.5 rounded-md text-base font-exo text-left focus:outline-none ${useDarkText
+                    className={`flex w-full items-center justify-between px-3 py-2.5 rounded-md text-base font-outfit text-left focus:outline-none ${useDarkText
                         ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
                         : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                       }`}
@@ -302,7 +302,7 @@ export default function Header() {
                           key={service.name}
                           href={service.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-roboto font-normal transition-all ${useDarkText
+                          className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-outfit font-normal transition-all ${useDarkText
                               ? isSubActive
                                 ? "bg-gray-100 text-[#001729] font-semibold"
                                 : "text-gray-500 hover:text-[#529e0b] hover:bg-gray-50"
@@ -334,7 +334,7 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2.5 rounded-md text-base font-exo ${useDarkText
+                className={`block px-3 py-2.5 rounded-md text-base font-outfit ${useDarkText
                     ? isActive ? "bg-gray-50 text-[#001729] font-bold" : "text-gray-600 font-normal hover:text-[#529e0b]"
                     : isActive ? "bg-white/10 text-white font-bold" : "text-white/80 font-normal hover:text-[#72D210]"
                   }`}

@@ -20,11 +20,11 @@ export default function Footer() {
 
   const services = [
     { name: "LPG Systems", href: "/services/lpg" },
-    { name: "Maintenance & AMC", href: "/services/maintenance" },
     { name: "Medical Gas System", href: "/services/medical" },
     { name: "Laboratory Turnkey Solutions", href: "/services/laboratory" },
     { name: "Fuel Oil System", href: "/services/fuel-oil" },
     { name: "Emergency Gas Services", href: "/services/emergency" },
+    { name: "Maintenance & AMC", href: "/services/maintenance" },
   ];
 
   const socialLinks = [

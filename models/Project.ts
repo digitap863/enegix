@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, model, models } from "mongoose";
 
 export interface IProject extends Document {
   projectCode: string;
-  category: "MEDICAL" | "INDUSTRIAL" | "LABORATORY" | "LPG" | "COMMERCIAL";
+  category: "MEDICAL" | "FUEL&OIL" | "LABORATORY" | "LPG";
   year: number;
   title: string;
   client: string;
@@ -25,7 +25,7 @@ const ProjectSchema = new Schema<IProject>(
       type: String,
       required: [true, "Category is required"],
       enum: {
-        values: ["MEDICAL", "INDUSTRIAL", "LABORATORY", "LPG", "COMMERCIAL"],
+        values: ["MEDICAL", "FUEL&OIL", "LABORATORY", "LPG"],
         message: "{VALUE} is not a valid project category",
       },
     },

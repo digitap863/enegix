@@ -7,7 +7,7 @@ import { type ServiceData } from "./data/services";
 
 // Swiper components and styles
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -25,6 +25,9 @@ const cardVariants: Variants = {
 };
 
 export default function ServiceSolutions({ service }: ServiceSolutionsProps) {
+  const [prevEl, setPrevEl] = React.useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = React.useState<HTMLButtonElement | null>(null);
+
   if (!service.solutions || service.solutions.length === 0) return null;
 
   return (
@@ -63,12 +66,16 @@ export default function ServiceSolutions({ service }: ServiceSolutionsProps) {
         </div>
 
         {/* Solutions Swiper Carousel */}
-        <div>
+        <div className="relative group/swiper">
           <Swiper
-            modules={[Pagination, Autoplay]}
+            modules={[Pagination, Autoplay, Navigation]}
             spaceBetween={24}
             slidesPerView={1}
             pagination={{ clickable: true }}
+            navigation={{
+              prevEl,
+              nextEl,
+            }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             breakpoints={{
               640: {
@@ -117,6 +124,27 @@ export default function ServiceSolutions({ service }: ServiceSolutionsProps) {
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Navigation Arrows */}
+          <button 
+            ref={setPrevEl}
+            className="swiper-prev-btn hidden sm:flex absolute left-2 md:-left-4 lg:-left-6 xl:-left-8 top-[40%] -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-gray-200 bg-white/95 shadow-md items-center justify-center text-[#041B3A] hover:bg-[#72D210] hover:border-[#72D210] hover:text-white transition-all duration-300 active:scale-95 disabled:opacity-40 disabled:pointer-events-none lg:opacity-0 lg:-translate-x-4 lg:group-hover/swiper:opacity-100 lg:group-hover/swiper:translate-x-0 cursor-pointer"
+            aria-label="Previous slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          
+          <button 
+            ref={setNextEl}
+            className="swiper-next-btn hidden sm:flex absolute right-2 md:-right-4 lg:-right-6 xl:-right-8 top-[40%] -translate-y-1/2 z-20 w-11 h-11 rounded-full border border-gray-200 bg-white/95 shadow-md items-center justify-center text-[#041B3A] hover:bg-[#72D210] hover:border-[#72D210] hover:text-white transition-all duration-300 active:scale-95 disabled:opacity-40 disabled:pointer-events-none lg:opacity-0 lg:translate-x-4 lg:group-hover/swiper:opacity-100 lg:group-hover/swiper:translate-x-0 cursor-pointer"
+            aria-label="Next slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
         </div>
 
       </div>

@@ -12,6 +12,7 @@
   --font-mono: var(--font-geist-mono);
   --font-roboto: var(--font-roboto);
   --font-exo: var(--font-exo);
+  --font-outfit: var(--font-outfit);
 }
 
 @media (prefers-color-scheme: dark) {

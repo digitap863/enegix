@@ -6,7 +6,7 @@ import Link from "next/link";
 interface Project {
   _id: string;
   projectCode: string;
-  category: "MEDICAL" | "INDUSTRIAL" | "LABORATORY" | "LPG" | "COMMERCIAL";
+  category: "MEDICAL" | "FUEL&OIL" | "LABORATORY" | "LPG";
   year: number;
   title: string;
   client: string;
@@ -64,7 +64,7 @@ export default function AdminProjectsPage() {
     }
   };
 
-  const categories = ["All", "MEDICAL", "INDUSTRIAL", "LABORATORY", "LPG", "COMMERCIAL"];
+  const categories = ["All", "MEDICAL", "FUEL&OIL", "LABORATORY", "LPG"];
 
   const filteredProjects = projects.filter((project) => {
     const matchesSearch =

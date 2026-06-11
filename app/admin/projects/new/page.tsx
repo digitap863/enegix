@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-const projectCategories = ["MEDICAL", "INDUSTRIAL", "LABORATORY", "LPG", "COMMERCIAL"];
+const projectCategories = ["MEDICAL", "FUEL&OIL", "LABORATORY", "LPG"];
 
 function ProjectFormContent() {
   const router = useRouter();
