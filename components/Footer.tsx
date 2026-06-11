@@ -100,8 +100,7 @@ export default function Footer() {
               </svg>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase leading-none mb-1">Call Us Now</span>
-                <a href="tel:+97145758258" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 4 575 8258</a>
-                <a href="tel:+971564166050" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 56 416 6050</a>
+                <a href="tel:+97145936064" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 4 5936064</a>
               </div>
             </div>
 
@@ -231,11 +230,11 @@ export default function Footer() {
                   </svg>
                 </span>
                 <div className="flex flex-col">
-                  <a href="tel:+97145758258" className="text-sm text-white hover:text-[#72D210] transition-colors">
-                    +971 4 575 8258
+                  <a href="tel:+97145936064" className="text-sm text-white hover:text-[#72D210] transition-colors">
+                    +971 4 5936064
                   </a>
                   <a href="tel:+971564166050" className="text-sm text-white hover:text-[#72D210] transition-colors mt-0.5">
-                    +971 56 416 6050
+                    +971 56 416 6050 (WhatsApp)
                   </a>
                 </div>
               </li>

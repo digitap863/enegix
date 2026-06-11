@@ -177,16 +177,16 @@ export default function ContactForm() {
                     Contact Us
                   </span>
                   <a
-                    href="tel:+97145758258"
-                    className="font-roboto text-gray-300 text-sm hover:text-[#72D210] transition-colors"
+                    href="tel:+97145936064"
+                    className="font-roboto text-gray-300 text-sm hover:text-[#72D210] transition-colors mt-1"
                   >
-                    +971 4 575 8258
+                    +971 4 5936064
                   </a>
                   <a
                     href="tel:+971564166050"
                     className="font-roboto text-gray-300 text-sm hover:text-[#72D210] transition-colors mt-1"
                   >
-                    +971 56 416 6050
+                    +971 56 416 6050 (WhatsApp)
                   </a>
                 </div>
               </div>
