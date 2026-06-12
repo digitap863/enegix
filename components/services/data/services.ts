@@ -122,7 +122,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
     subtitle: "Medical Gas System",
     breadcrumb: "MEDICAL GAS SYSTEMS",
     description: "Engineered medical gas systems for hospitals, clinics, laboratories, and critical healthcare environments.",
-    bannerImage: "/assets/Service/medical/Medical_gas_System_banner.png",
+    bannerImage: "/assets/Service/medical/banner.png",
 
     // Details
     detailsLabel: "SERVICE",
@@ -282,7 +282,7 @@ solutions: [
     subtitle: "Fuel Oil System",
     breadcrumb: "FUEL OIL SYSTEMS",
     description: "Engineered fuel storage, transfer, and distribution systems for industrial, commercial, and critical infrastructure facilities.",
-    bannerImage: "/assets/Service/fuel_oil/fuel_oil_banner.png",
+    bannerImage: "/assets/Service/fuel_oil/banner.jfif",
 
     // Details
     detailsLabel: "SERVICE",

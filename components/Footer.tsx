@@ -100,7 +100,7 @@ export default function Footer() {
               </svg>
               <div className="flex flex-col text-left">
                 <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase leading-none mb-1">Call Us Now</span>
-                <a href="tel:+97145936064" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 4 5936064</a>
+                <a href="tel:+97145936064" className="text-sm font-bold leading-tight hover:text-[#4E9208] transition-colors">+971 4593 6064</a>
               </div>
             </div>
 
@@ -231,7 +231,7 @@ export default function Footer() {
                 </span>
                 <div className="flex flex-col">
                   <a href="tel:+97145936064" className="text-sm text-white hover:text-[#72D210] transition-colors">
-                    +971 4 5936064
+                    +971 4593 6064
                   </a>
                   <a href="tel:+971564166050" className="text-sm text-white hover:text-[#72D210] transition-colors mt-0.5">
                     +971 56 416 6050 (WhatsApp)
@@ -296,10 +296,10 @@ export default function Footer() {
             © 2026 <span className="text-[#4E9208] font-semibold">Tapclone</span> | All rights reserved.
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-use" className="hover:text-white transition-colors">Terms of Use</Link>
-            <Link href="/legal" className="hover:text-white transition-colors">Legal</Link>
-            <Link href="/map" className="hover:text-white transition-colors">Map</Link>
+            <p className="hover:text-white transition-colors">Privacy Policy</p>
+            <p className="hover:text-white transition-colors">Terms of Use</p>
+            <p className="hover:text-white transition-colors">Legal</p>
+            <p className="hover:text-white transition-colors">Map</p>
           </div>
         </div>
       </div>
