@@ -282,7 +282,7 @@ solutions: [
     subtitle: "Fuel Oil System",
     breadcrumb: "FUEL OIL SYSTEMS",
     description: "Engineered fuel storage, transfer, and distribution systems for industrial, commercial, and critical infrastructure facilities.",
-    bannerImage: "/assets/Service/fuel_oil/banner1.jfif",
+    bannerImage: "/assets/Service/fuel_oil/banner1.png",
 
     // Details
     detailsLabel: "SERVICE",
